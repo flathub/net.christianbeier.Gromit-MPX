@@ -47,4 +47,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/bk138/gromit-mpx.git
-        commit: bbbf33682507f52c6c87e369cb11dc5ecf964e41
+        tag: 1.4.1
