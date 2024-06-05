@@ -1,6 +1,6 @@
 id: net.christianbeier.Gromit-MPX
 runtime: org.gnome.Platform # using GNOME for the time being as we need dconf for setting hotkeys under Wayland
-runtime-version: '44'
+runtime-version: '46'
 sdk: org.gnome.Sdk
 command: gromit-mpx
 finish-args:
