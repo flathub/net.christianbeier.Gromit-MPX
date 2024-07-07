@@ -4,7 +4,18 @@ runtime-version: '46'
 sdk: org.gnome.Sdk
 command: gromit-mpx
 finish-args:
-  - --socket=x11
+  # ? share IPC namespace with the host
+  # ? This is not necessarily required, but without it the X11 shared memory extension
+  # will not work, which is very bad for X11 performance.
+  - --share=ipc
+  #  ? show windows using X11,
+  # if Wayland is not available, overrides x11 socket permission.
+  # Note that you must still use --socket=wayland for wayland permission
+  - --socket=fallback-x11
+  #  ? Show windows with Wayland
+  - --socket=wayland
+  #  ? Direct Rendering Interface. Necessary for GL.
+  - --device=dri
   # needed to show appindicator in Ubuntu
   - --talk-name=org.kde.StatusNotifierWatcher
   # this is the dconf hole for setting hotkeys under Wayland
