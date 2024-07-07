@@ -24,6 +24,14 @@ finish-args:
   - --talk-name=ca.desrt.dconf
   - --env=DCONF_USER_CONFIG_DIR=.config/dconf
   - --env=GIO_EXTRA_MODULES=/app/lib/gio/modules/
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /libexec
+  - /share/dbus-1
+  - /share/man
+  - /share/doc
+  - /share/vala
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
   # ship media-keys schema for settings hotkeys under Wayland
@@ -42,11 +50,6 @@ modules:
     config-opts:
       - -Dbash_completion=false
       - -Dman=false
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /libexec
-      - /share/dbus-1
     sources:
       - type: archive
         url: https://download.gnome.org/sources/dconf/0.40/dconf-0.40.0.tar.xz
